@@ -1,0 +1,15 @@
+# Conda/mamba environment for the GFN2-xTB re-fit pipeline.
+# Create with:   mamba env create -f environment.yml     (or: conda env create -f environment.yml)
+# then:          conda activate xtbfit
+name: xtbfit
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - xtb-python
+  - cclib
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - typing_extensions        # required by xtb-python

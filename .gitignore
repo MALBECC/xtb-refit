@@ -1,0 +1,17 @@
+# Keep the repo code-only. Data (-i) and results (-o) live OUTSIDE the repo; anything
+# generated in-place is ignored here. Adjust if you want to ship an example dataset.
+
+# results / outputs (use -o pointing outside the repo)
+/fit/
+*.log
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+
+# raw + assembled datasets (use -i / -o); keep only the docs (data/README.txt)
+/data/*/engrad/
+/data/*/train/
+/data/*/val/
+/data/*/_quarantine/
