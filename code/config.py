@@ -136,8 +136,16 @@ MNIWI       = _envint("XTBFIT_MNIWI", 12)                # max iterations withou
 OBJ = dict(ref_ener=_envfloat("XTBFIT_REF_ENER", 60.0),
            ewall=1e299, cwall=1e299, gwall=1e299)
 
-# 75 tunable GFN2 slots
-PATTERNS = [f"VARIABLE{i}#" for i in range(1, 76)]
+# Tunable GFN2 slots. The parameter set (HCONS=75 default, HCONSSe=95 with Selenium) is
+# defined once in paramset.py and re-exported here, so config is the single import surface
+# and PATTERNS/template/dimension/seed can never drift apart. Select via XTBFIT_PARAMSET.
+sys.path.insert(0, CODE_DIR)
+import paramset as _PS
+PARAMSET   = _PS.PARAMSET       # "HCONS" or "HCONSSe"
+PARM       = _PS.PARM           # selected parameter-file template string
+PATTERNS   = _PS.PATTERNS       # VARIABLE1#..  (75 or 95)
+DIMENSION  = _PS.DIMENSION      # len(PATTERNS)
+SEED_EXTRA = _PS.SEED_EXTRA     # [] (HCONS) or the 20 Se stock values (HCONSSe)
 # unit constants
 HARTREE_TO_KCAL_MOL = 627.509391
 ANGSTROM_TO_BOHR    = 1.8897259885789
@@ -146,6 +154,7 @@ ANGSTROM_TO_BOHR    = 1.8897259885789
 def summary():
     return (f"SYSTEM={SYSTEM}\n  input (engrad)={ENGRAD_DIR}\n  output={FIT_DIR}\n"
             f"  train={TRAIN_DIR}\n  val={VAL_DIR}\n"
+            f"  paramset={PARAMSET} ({DIMENSION} params)\n"
             f"  train_replicas={TRAIN_REPLICAS}  val_replicas={VAL_REPLICAS}  exclude={EXCLUDE}\n"
             f"  GA: POP={POP} ITERS={ITERS} bounds=±{BOUNDS_FRAC*100:.0f}% N_CPUS={N_CPUS} MNIWI={MNIWI}\n"
             f"  SCF: etemp={XTB_ETEMP}K maxiter={XTB_MAXITER}  ref_ener={OBJ['ref_ener']}\n"

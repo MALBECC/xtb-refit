@@ -22,16 +22,21 @@ H2KCAL = HARTREE_TO_KCAL_MOL
 
 
 def default_gfn2_params():
-    """The 75 stock GFN2 values (GA seed), read from the fitter's published experiment."""
+    """Stock GFN2 seed for the SELECTED parameter set (C.PARAMSET): the 75 published
+    H/C/N/O/S values, plus the 20 Se ($Z=34) stock values when paramset=HCONSSe (95 total).
+    Order matches C.PATTERNS (VARIABLE1#.. positionally)."""
     txt = open(os.path.join(C.PARAMFITTER, "experiments", "DDGA_OPTIM_CCR.py")).read()
-    return ast.literal_eval(re.search(r"orig\s*=\s*(\[.*?\])", txt, re.S).group(1))
+    orig = ast.literal_eval(re.search(r"orig\s*=\s*(\[.*?\])", txt, re.S).group(1))
+    assert len(orig) == 75, f"expected 75 stock params in DDGA_OPTIM_CCR.py, read {len(orig)}"
+    return orig + list(C.SEED_EXTRA)
 
 
 def write_param_dir(values, dirpath):
-    """Write a param_gfn2-xtb.txt holding `values` into dirpath (used as XTBPATH)."""
-    from parameters import parm_HCONS, XTBParam
+    """Write a param_gfn2-xtb.txt holding `values` into dirpath (used as XTBPATH).
+    Uses the SELECTED template C.PARM (HCONS or the Se-extended HCONSSe)."""
+    from parameters import XTBParam
     os.makedirs(dirpath, exist_ok=True)
-    XTBParam(parm_HCONS, C.PATTERNS, list(values)).print_param_file(
+    XTBParam(C.PARM, C.PATTERNS, list(values)).print_param_file(
         os.path.join(dirpath, "param_gfn2-xtb.txt"))
     return dirpath
 

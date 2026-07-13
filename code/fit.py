@@ -13,7 +13,7 @@ import config as C
 
 from algorithms import DDGeneticAlgorithm as DDGA
 from objectivefunctions import ECGFittingV3Json
-from parameters import parm_HCONS, XTBParam
+from parameters import XTBParam
 
 paths = K.curve_paths(C.TRAIN_DIR)
 assert paths, f"No dataset_f*.json in {C.TRAIN_DIR} — run assemble_dataset.py first"
@@ -24,7 +24,7 @@ print(C.summary())
 print(f"\nfitting {len(paths)} train curve(s), objective E+C+G  {C.OBJ}")
 orig = K.default_gfn2_params()
 cvo = [[True, True, True] for _ in paths]
-funct = ECGFittingV3Json(patterns=C.PATTERNS, parm=parm_HCONS, paths=paths,
+funct = ECGFittingV3Json(patterns=C.PATTERNS, parm=C.PARM, paths=paths,
                          cv_objectives=cvo, out_folder=GA_OUT, **C.OBJ)
 def objective(inp): return funct.evaluate(solution=inp[0], thr_id=inp[1])
 
@@ -35,15 +35,16 @@ vb = np.array([[v - C.BOUNDS_FRAC*abs(v), v + C.BOUNDS_FRAC*abs(v)] for v in ori
 ap = {'max_num_iteration': C.ITERS, 'population_size': C.POP, 'mutation_probability': 0.9,
       'elit_ratio': 0.15, 'crossover_probability': 0.95, 'parents_portion': 0.4,
       'crossover_type': 'uniform', 'max_iteration_without_improv': C.MNIWI}
-model = DDGA(function=objective, dimension=75, variable_boundaries=vb,
+model = DDGA(function=objective, dimension=C.DIMENSION, variable_boundaries=vb,
              algorithm_parameters=ap, convergence_curve=False, progress_bar=False)
 t = time.time()
 model.run(guess=list(orig), log_path=os.path.join(C.FIT_DIR, "ga_logger.log"), n_cpus=C.N_CPUS)
 dt = time.time() - t
 
 best = np.array(model.best_variable); best_score = float(model.best_function)
-XTBParam(parm_HCONS, C.PATTERNS, list(best)).print_param_file(os.path.join(C.FIT_DIR, "param_gfn2-xtb.txt"))
-np.savetxt(os.path.join(C.FIT_DIR, "best_solution.txt"), best, header="75 optimized GFN2 params")
+XTBParam(C.PARM, C.PATTERNS, list(best)).print_param_file(os.path.join(C.FIT_DIR, "param_gfn2-xtb.txt"))
+np.savetxt(os.path.join(C.FIT_DIR, "best_solution.txt"), best,
+           header=f"{C.DIMENSION} optimized GFN2 params ({C.PARAMSET})")
 with open(os.path.join(C.FIT_DIR, "fit_summary.txt"), "w") as f:
     f.write(f"system {C.SYSTEM}\n")
     f.write(f"baseline SCORE {s0[0]:.4e} -> best SCORE {best_score:.4e}\n")

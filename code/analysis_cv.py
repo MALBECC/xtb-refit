@@ -42,7 +42,7 @@ import plot_lib as P          # reuse r2/rmse + colors
 
 from algorithms import DDGeneticAlgorithm as DDGA
 from objectivefunctions import ECGFittingV3Json
-from parameters import parm_HCONS, XTBParam
+from parameters import XTBParam
 
 
 # ── knobs ─────────────────────────────────────────────────────────────────────
@@ -138,7 +138,7 @@ def run_fit(train_paths, fit_dir, pop, iters, n_cpus, tag=""):
     work = os.path.join(fit_dir, "ga_work"); os.makedirs(work, exist_ok=True)
     orig = K.default_gfn2_params()
     cvo = [[True, True, True] for _ in train_paths]
-    funct = ECGFittingV3Json(patterns=C.PATTERNS, parm=parm_HCONS, paths=train_paths,
+    funct = ECGFittingV3Json(patterns=C.PATTERNS, parm=C.PARM, paths=train_paths,
                              cv_objectives=cvo, out_folder=work, **C.OBJ)
     _FUNCT = funct
     s0 = np.array(funct.evaluate(solution=list(orig), thr_id=0))
@@ -147,14 +147,15 @@ def run_fit(train_paths, fit_dir, pop, iters, n_cpus, tag=""):
     ap = {'max_num_iteration': iters, 'population_size': pop, 'mutation_probability': 0.9,
           'elit_ratio': 0.15, 'crossover_probability': 0.95, 'parents_portion': 0.4,
           'crossover_type': 'uniform', 'max_iteration_without_improv': C.MNIWI}
-    model = DDGA(function=_objective, dimension=75, variable_boundaries=vb,
+    model = DDGA(function=_objective, dimension=C.DIMENSION, variable_boundaries=vb,
                  algorithm_parameters=ap, convergence_curve=False, progress_bar=False)
     t = time.time()
     model.run(guess=list(orig), log_path=os.path.join(fit_dir, "ga_logger.log"), n_cpus=n_cpus)
     dt = time.time() - t
     best = np.array(model.best_variable)
-    XTBParam(parm_HCONS, C.PATTERNS, list(best)).print_param_file(param_out)
-    np.savetxt(os.path.join(fit_dir, "best_solution.txt"), best, header="75 optimized GFN2 params")
+    XTBParam(C.PARM, C.PATTERNS, list(best)).print_param_file(param_out)
+    np.savetxt(os.path.join(fit_dir, "best_solution.txt"), best,
+               header=f"{C.DIMENSION} optimized GFN2 params ({C.PARAMSET})")
     with open(os.path.join(fit_dir, "fit_summary.txt"), "w") as f:
         f.write(f"tag {tag}\nbaseline SCORE {s0[0]:.4e} -> best SCORE {float(model.best_function):.4e}\n")
         f.write(f"train_curves {len(train_paths)} POP {pop} ITERS {iters} N_CPUS {n_cpus} "

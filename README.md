@@ -135,10 +135,20 @@ python analysis_cv.py all -i $IN -o $OUT
 | training replicas (f-indices) | `TRAIN_REPLICAS` | `XTBFIT_TRAIN_REPLICAS="1-10"` / `"all"` |
 | held-out validation replicas | `VAL_REPLICAS` | `XTBFIT_VAL_REPLICAS="11-20"` / `"none"` |
 | drop bad structures | `EXCLUDE` | `XTBFIT_EXCLUDE="node1_f1,node1_f19"` |
+| tunable parameter set | `paramset.py` | `XTBFIT_PARAMSET` (`HCONS` \| `HCONSSe`) |
 | GA size / cores | `POP,ITERS,N_CPUS` | `XTBFIT_POP / _ITERS / _NCPUS` |
 | SCF Fermi smearing | `XTB_ETEMP,XTB_MAXITER` | `XTB_ETEMP / XTB_MAXITER` |
 
 Replica specs accept ranges (`"1-10"`), comma lists (`"1,2,3"`), and `all` / `none`.
+
+**Which elements are tuned (`XTBFIT_PARAMSET`, default `HCONS`).** `HCONS` tunes H/C/N/O/S
+(75 params) — use it for S-only systems. `HCONSSe` additionally tunes **Selenium** (`$Z=34`,
++20 params → 95), mirroring exactly how Sulfur is tuned — use it when the reactive center is
+Se (e.g. a selenocysteine variant); with `HCONS`, Se stays frozen at stock GFN2 and the fit
+cannot correct the reactive atom. The Se-extended template is built at import in
+`code/paramset.py` (deps/ is not modified). Adding another element later = add its stock
+values + field list there. **Re-derive `XTBFIT_EXCLUDE` per system** with `check_data.py`
+(the defaults are msrb-specific).
 Set `XTBFIT_TRAIN_REPLICAS=all XTBFIT_VAL_REPLICAS=none` to train on every replica.
 
 ---
