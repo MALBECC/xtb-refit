@@ -30,6 +30,7 @@ def objective(inp): return funct.evaluate(solution=inp[0], thr_id=inp[1])
 
 s0 = np.array(funct.evaluate(solution=list(orig), thr_id=0))
 print(f"baseline (default GFN2) SCORE={s0[0]:.3e}  GRAD={s0[1]:.3f} CHRG={s0[2]:.3f} E={s0[3]:.3e}")
+K.warn_objective_scale(s0, "baseline")   # cheap check before committing to a multi-hour GA
 
 vb = np.array([[v - C.BOUNDS_FRAC*abs(v), v + C.BOUNDS_FRAC*abs(v)] for v in orig])
 ap = {'max_num_iteration': C.ITERS, 'population_size': C.POP, 'mutation_probability': 0.9,

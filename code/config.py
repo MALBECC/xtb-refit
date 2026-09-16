@@ -136,16 +136,19 @@ MNIWI       = _envint("XTBFIT_MNIWI", 12)                # max iterations withou
 OBJ = dict(ref_ener=_envfloat("XTBFIT_REF_ENER", 60.0),
            ewall=1e299, cwall=1e299, gwall=1e299)
 
-# Tunable GFN2 slots. The parameter set (HCONS=75 default, HCONSSe=95 with Selenium) is
+# Tunable GFN2 slots. The parameter set (HCONS=75 default; HCONSSe=95 adds Se; HCONSPMg=115
+# adds P+Mg; HCONSPMgSe=135 adds P+Mg+Se) is
 # defined once in paramset.py and re-exported here, so config is the single import surface
 # and PATTERNS/template/dimension/seed can never drift apart. Select via XTBFIT_PARAMSET.
 sys.path.insert(0, CODE_DIR)
 import paramset as _PS
-PARAMSET   = _PS.PARAMSET       # "HCONS" or "HCONSSe"
+PARAMSET   = _PS.PARAMSET       # "HCONS" | "HCONSSe" | "HCONSPMg" | "HCONSPMgSe"
 PARM       = _PS.PARM           # selected parameter-file template string
-PATTERNS   = _PS.PATTERNS       # VARIABLE1#..  (75 or 95)
+PATTERNS   = _PS.PATTERNS       # VARIABLE1#..  (75 / 95 / 115 / 135)
 DIMENSION  = _PS.DIMENSION      # len(PATTERNS)
-SEED_EXTRA = _PS.SEED_EXTRA     # [] (HCONS) or the 20 Se stock values (HCONSSe)
+SEED_EXTRA = _PS.SEED_EXTRA     # [] (HCONS), else 20 stock values per extra element
+EXTRA_ELEMENTS = _PS.EXTRA_ELEMENTS  # e.g. ["P","Mg"] — elements behind VARIABLE76#..
+EXTRA_LABEL    = _PS.EXTRA_LABEL     # e.g. "P+Mg", or "none" for plain HCONS
 # unit constants
 HARTREE_TO_KCAL_MOL = 627.509391
 ANGSTROM_TO_BOHR    = 1.8897259885789

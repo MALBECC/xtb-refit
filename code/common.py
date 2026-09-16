@@ -23,17 +23,50 @@ H2KCAL = HARTREE_TO_KCAL_MOL
 
 def default_gfn2_params():
     """Stock GFN2 seed for the SELECTED parameter set (C.PARAMSET): the 75 published
-    H/C/N/O/S values, plus the 20 Se ($Z=34) stock values when paramset=HCONSSe (95 total).
-    Order matches C.PATTERNS (VARIABLE1#.. positionally)."""
+    H/C/N/O/S values, plus 20 stock values for each extra element the paramset tunes
+    (C.EXTRA_ELEMENTS, e.g. Se / P+Mg). Order matches C.PATTERNS (VARIABLE1#.. positionally)."""
     txt = open(os.path.join(C.PARAMFITTER, "experiments", "DDGA_OPTIM_CCR.py")).read()
     orig = ast.literal_eval(re.search(r"orig\s*=\s*(\[.*?\])", txt, re.S).group(1))
     assert len(orig) == 75, f"expected 75 stock params in DDGA_OPTIM_CCR.py, read {len(orig)}"
     return orig + list(C.SEED_EXTRA)
 
 
+def warn_objective_scale(s, label="baseline"):
+    """Warn when an ECG score points at a BROKEN DATASET rather than bad parameters.
+
+    Calibration note — a huge starting SCORE is NORMAL here. The energy term is unbounded
+    until the parameters are close, so healthy fits on this pipeline start anywhere in
+    ~1e4..1e20 and still converge:
+        msrb_sel_50rep   baseline 1.86e+19 -> best 1.78e+04   (fine)
+        msrb_50rep       baseline 8.63e+11 -> best 2.55e+03   (fine)
+    What actually signals trouble is a structure that will not run. Same system, one
+    structure different:
+        refit (node1_f1 excluded)   5.93e+13 -> 1.18e+05      (fine)
+        refit_v1_withNode1f1        7.19e+40 -> 4.56e+32      (never recovered)
+    So we flag the failure wall and magnitudes far above the healthy band — NOT energy
+    dominance, which is expected and present in the good runs too."""
+    import math
+    score = float(s[0])
+    w = []
+    if not math.isfinite(score) or score >= 1e299:
+        w.append("SCORE is at the failure wall (>=1e299): at least one structure did not "
+                 "run at all.")
+    elif score > 1e30:
+        w.append(f"SCORE={score:.3e} is far above the ~1e4..1e20 band healthy fits start "
+                 f"from; in practice this has meant ONE bad structure dominating the set.")
+    if w:
+        print(f"\n  !! WARNING - {label} objective suggests a DATASET problem, not bad params:")
+        for m in w:
+            print(f"  !!   {m}")
+        print("  !!   Look for 'Error in single-point calculation' above to get the base name,")
+        print("  !!   then add it to XTBFIT_EXCLUDE, and/or raise XTB_ETEMP / XTB_MAXITER.")
+        print("  !!   (A large-but-finite SCORE below ~1e30 is normal and fits fine.)\n")
+    return bool(w)
+
+
 def write_param_dir(values, dirpath):
     """Write a param_gfn2-xtb.txt holding `values` into dirpath (used as XTBPATH).
-    Uses the SELECTED template C.PARM (HCONS or the Se-extended HCONSSe)."""
+    Uses the SELECTED template C.PARM (HCONS or one of its element-extended variants)."""
     from parameters import XTBParam
     os.makedirs(dirpath, exist_ok=True)
     XTBParam(C.PARM, C.PATTERNS, list(values)).print_param_file(
