@@ -10,6 +10,7 @@ system's JSON, run a data check, then the pipeline.
 xtb_refit/                 the repo — code + bundled fitter ONLY
 ├── code/            all scripts (system-agnostic; read code/config.py)
 ├── deps/            bundled fitter (gfn2-xtb_paramfitter + SCF-robustness patch)
+├── examples/        a small runnable dataset in the supported input format
 ├── run_all.sh       one-command pipeline (assemble → fit → plots → analysis)
 └── environment.yml
 ```
@@ -27,6 +28,21 @@ need `-i`; `dryrun`/`fit`/`make_plots`/`make_report_plots`/`validate` only need 
 then the in-repo `data/<SYSTEM>/` + `fit/<SYSTEM>` layout (backward compatible).
 
 The file you use for MD is **`OUTPUT/param_gfn2-xtb.txt`**.
+
+## Input format — compact `*_engrad.json`
+
+**This is the supported input format.** One JSON per structure, holding the reference
+energy, per-atom charges, gradient and geometry. Point `-i` at a folder of them (any
+subfolder layout — they are found recursively) and everything else follows.
+
+A small, runnable example lives in **[`examples/msrb_sel_mini/`](examples/msrb_sel_mini/)**
+— 26 real structures (MsrB selenocysteine, B3LYP-D4/def2-TZVP), enough to run the whole
+pipeline in a few minutes. Its README documents the schema, which fields are actually
+required, the two filename rules that will silently ruin a dataset if broken, and how to
+produce these files from ORCA (the `EnGrad` keyword, and why a merge step is needed).
+
+Start there when onboarding a new system: copy its layout, run `check_data.py`, then
+proceed as below.
 
 ---
 

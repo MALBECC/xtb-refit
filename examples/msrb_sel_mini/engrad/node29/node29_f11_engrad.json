@@ -1,0 +1,997 @@
+{
+ "label": "node29_f11_engrad",
+ "n_atoms": 47,
+ "charge": 1,
+ "multiplicity": 1,
+ "energy_hartree": -3642.189334902605,
+ "atoms": [
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    23.667795,
+    26.549755,
+    28.53224
+   ],
+   "mulliken_charge": -0.344392,
+   "loewdin_charge": -0.244117,
+   "gradient_hartree_per_bohr": [
+    0.00063934,
+    0.03399476,
+    -0.01336472
+   ],
+   "force_hartree_per_bohr": [
+    -0.00063934,
+    -0.03399476,
+    0.01336472
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    22.706558,
+    26.165501,
+    28.912909
+   ],
+   "mulliken_charge": 0.122644,
+   "loewdin_charge": 0.134173,
+   "gradient_hartree_per_bohr": [
+    -0.00298168,
+    -0.00795178,
+    0.00032684
+   ],
+   "force_hartree_per_bohr": [
+    0.00298168,
+    0.00795178,
+    -0.00032684
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    23.46047,
+    26.919745,
+    27.541058
+   ],
+   "mulliken_charge": 0.154468,
+   "loewdin_charge": 0.132435,
+   "gradient_hartree_per_bohr": [
+    -0.00680707,
+    0.00390428,
+    0.00968837
+   ],
+   "force_hartree_per_bohr": [
+    0.00680707,
+    -0.00390428,
+    -0.00968837
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    24.64736,
+    25.342121,
+    28.630655
+   ],
+   "mulliken_charge": 0.131242,
+   "loewdin_charge": -0.229989,
+   "gradient_hartree_per_bohr": [
+    0.02757567,
+    -0.04808548,
+    0.03037892
+   ],
+   "force_hartree_per_bohr": [
+    -0.02757567,
+    0.04808548,
+    -0.03037892
+   ]
+  },
+  {
+   "element": "N",
+   "atomic_number": 7,
+   "xyz_angstrom": [
+    24.609512,
+    24.480831,
+    29.670918
+   ],
+   "mulliken_charge": -0.250484,
+   "loewdin_charge": 0.214491,
+   "gradient_hartree_per_bohr": [
+    -0.00957463,
+    0.01397289,
+    -0.02825935
+   ],
+   "force_hartree_per_bohr": [
+    0.00957463,
+    -0.01397289,
+    0.02825935
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    24.087231,
+    24.551048,
+    30.543789
+   ],
+   "mulliken_charge": 0.2484,
+   "loewdin_charge": 0.208899,
+   "gradient_hartree_per_bohr": [
+    0.00035224,
+    -0.00343878,
+    0.01257809
+   ],
+   "force_hartree_per_bohr": [
+    -0.00035224,
+    0.00343878,
+    -0.01257809
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    25.668343,
+    23.643395,
+    29.546126
+   ],
+   "mulliken_charge": 0.091001,
+   "loewdin_charge": -0.317493,
+   "gradient_hartree_per_bohr": [
+    -0.02155321,
+    0.02556206,
+    -0.02991716
+   ],
+   "force_hartree_per_bohr": [
+    0.02155321,
+    -0.02556206,
+    0.02991716
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    25.963608,
+    22.894505,
+    30.350706
+   ],
+   "mulliken_charge": 0.14417,
+   "loewdin_charge": 0.134953,
+   "gradient_hartree_per_bohr": [
+    0.01154191,
+    -0.02299243,
+    0.02474039
+   ],
+   "force_hartree_per_bohr": [
+    -0.01154191,
+    0.02299243,
+    -0.02474039
+   ]
+  },
+  {
+   "element": "N",
+   "atomic_number": 7,
+   "xyz_angstrom": [
+    26.367645,
+    23.910414,
+    28.461086
+   ],
+   "mulliken_charge": -0.372668,
+   "loewdin_charge": 0.082059,
+   "gradient_hartree_per_bohr": [
+    0.01768451,
+    0.01700092,
+    -0.0112872
+   ],
+   "force_hartree_per_bohr": [
+    -0.01768451,
+    -0.01700092,
+    0.0112872
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    27.741327,
+    23.118382,
+    28.09792
+   ],
+   "mulliken_charge": 0.367951,
+   "loewdin_charge": 0.167416,
+   "gradient_hartree_per_bohr": [
+    -0.01888639,
+    0.00456111,
+    0.006014
+   ],
+   "force_hartree_per_bohr": [
+    0.01888639,
+    -0.00456111,
+    -0.006014
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    25.668123,
+    24.915394,
+    27.832848
+   ],
+   "mulliken_charge": -0.088652,
+   "loewdin_charge": -0.21029,
+   "gradient_hartree_per_bohr": [
+    -0.01987281,
+    0.00444919,
+    -0.01054108
+   ],
+   "force_hartree_per_bohr": [
+    0.01987281,
+    -0.00444919,
+    0.01054108
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    26.091458,
+    25.199383,
+    26.909907
+   ],
+   "mulliken_charge": 0.149882,
+   "loewdin_charge": 0.134975,
+   "gradient_hartree_per_bohr": [
+    0.00480803,
+    -0.01803473,
+    0.01599424
+   ],
+   "force_hartree_per_bohr": [
+    -0.00480803,
+    0.01803473,
+    -0.01599424
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    29.926649,
+    20.616736,
+    32.816841
+   ],
+   "mulliken_charge": -0.314081,
+   "loewdin_charge": -0.229071,
+   "gradient_hartree_per_bohr": [
+    -0.00217222,
+    -0.01875091,
+    0.00587388
+   ],
+   "force_hartree_per_bohr": [
+    0.00217222,
+    0.01875091,
+    -0.00587388
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    30.861437,
+    20.800903,
+    32.321705
+   ],
+   "mulliken_charge": 0.142797,
+   "loewdin_charge": 0.140833,
+   "gradient_hartree_per_bohr": [
+    -0.01334098,
+    0.00503063,
+    0.00698524
+   ],
+   "force_hartree_per_bohr": [
+    0.01334098,
+    -0.00503063,
+    -0.00698524
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    30.034037,
+    19.857632,
+    33.548943
+   ],
+   "mulliken_charge": 0.148268,
+   "loewdin_charge": 0.144035,
+   "gradient_hartree_per_bohr": [
+    -0.0050828,
+    0.01360614,
+    -0.01339449
+   ],
+   "force_hartree_per_bohr": [
+    0.0050828,
+    -0.01360614,
+    0.01339449
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    28.870426,
+    20.240753,
+    31.874857
+   ],
+   "mulliken_charge": 0.061013,
+   "loewdin_charge": -0.189023,
+   "gradient_hartree_per_bohr": [
+    0.02182362,
+    0.02279009,
+    0.01276678
+   ],
+   "force_hartree_per_bohr": [
+    -0.02182362,
+    -0.02279009,
+    -0.01276678
+   ]
+  },
+  {
+   "element": "N",
+   "atomic_number": 7,
+   "xyz_angstrom": [
+    28.614912,
+    20.858471,
+    30.643702
+   ],
+   "mulliken_charge": -0.160884,
+   "loewdin_charge": 0.270825,
+   "gradient_hartree_per_bohr": [
+    -0.02533002,
+    0.00486431,
+    -0.05810671
+   ],
+   "force_hartree_per_bohr": [
+    0.02533002,
+    -0.00486431,
+    0.05810671
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    29.326292,
+    21.553631,
+    30.367424
+   ],
+   "mulliken_charge": 0.31301,
+   "loewdin_charge": 0.212098,
+   "gradient_hartree_per_bohr": [
+    0.00962887,
+    -0.00583473,
+    0.02627374
+   ],
+   "force_hartree_per_bohr": [
+    -0.00962887,
+    0.00583473,
+    -0.02627374
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    27.545801,
+    20.306017,
+    30.133269
+   ],
+   "mulliken_charge": 0.104478,
+   "loewdin_charge": -0.237628,
+   "gradient_hartree_per_bohr": [
+    0.00175515,
+    -0.02987754,
+    0.05893456
+   ],
+   "force_hartree_per_bohr": [
+    -0.00175515,
+    0.02987754,
+    -0.05893456
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    27.180346,
+    20.537029,
+    29.154762
+   ],
+   "mulliken_charge": 0.175668,
+   "loewdin_charge": 0.148813,
+   "gradient_hartree_per_bohr": [
+    0.00617799,
+    -0.00259229,
+    0.00236095
+   ],
+   "force_hartree_per_bohr": [
+    -0.00617799,
+    0.00259229,
+    -0.00236095
+   ]
+  },
+  {
+   "element": "N",
+   "atomic_number": 7,
+   "xyz_angstrom": [
+    27.12174,
+    19.356259,
+    30.904656
+   ],
+   "mulliken_charge": -0.176976,
+   "loewdin_charge": 0.252411,
+   "gradient_hartree_per_bohr": [
+    0.0395793,
+    0.03897151,
+    -0.00230139
+   ],
+   "force_hartree_per_bohr": [
+    -0.0395793,
+    -0.03897151,
+    0.00230139
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    26.276953,
+    18.787138,
+    30.817539
+   ],
+   "mulliken_charge": 0.280819,
+   "loewdin_charge": 0.233062,
+   "gradient_hartree_per_bohr": [
+    -0.00838639,
+    -0.00812936,
+    0.00997982
+   ],
+   "force_hartree_per_bohr": [
+    0.00838639,
+    0.00812936,
+    -0.00997982
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    27.927653,
+    19.223757,
+    31.95398
+   ],
+   "mulliken_charge": -0.037724,
+   "loewdin_charge": -0.157687,
+   "gradient_hartree_per_bohr": [
+    -0.04393334,
+    -0.04352329,
+    -0.02387957
+   ],
+   "force_hartree_per_bohr": [
+    0.04393334,
+    0.04352329,
+    0.02387957
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    27.780411,
+    18.580252,
+    32.751099
+   ],
+   "mulliken_charge": 0.189695,
+   "loewdin_charge": 0.14357,
+   "gradient_hartree_per_bohr": [
+    0.00832768,
+    0.02356128,
+    -0.02174656
+   ],
+   "force_hartree_per_bohr": [
+    -0.00832768,
+    -0.02356128,
+    0.02174656
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    34.372051,
+    21.927015,
+    31.866247
+   ],
+   "mulliken_charge": -0.385567,
+   "loewdin_charge": -0.520503,
+   "gradient_hartree_per_bohr": [
+    -0.0030287,
+    -0.00038751,
+    -0.01081968
+   ],
+   "force_hartree_per_bohr": [
+    0.0030287,
+    0.00038751,
+    0.01081968
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    33.352665,
+    21.660414,
+    32.121243
+   ],
+   "mulliken_charge": 0.050951,
+   "loewdin_charge": 0.092792,
+   "gradient_hartree_per_bohr": [
+    0.0095641,
+    0.00087976,
+    0.00459078
+   ],
+   "force_hartree_per_bohr": [
+    -0.0095641,
+    -0.00087976,
+    -0.00459078
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    34.985657,
+    21.353926,
+    32.549435
+   ],
+   "mulliken_charge": 0.143637,
+   "loewdin_charge": 0.11675,
+   "gradient_hartree_per_bohr": [
+    -0.0044039,
+    -0.00286347,
+    -0.00609983
+   ],
+   "force_hartree_per_bohr": [
+    0.0044039,
+    0.00286347,
+    0.00609983
+   ]
+  },
+  {
+   "element": "Se",
+   "atomic_number": 34,
+   "xyz_angstrom": [
+    34.908081,
+    21.359196,
+    30.091469
+   ],
+   "mulliken_charge": -0.450207,
+   "loewdin_charge": -0.246354,
+   "gradient_hartree_per_bohr": [
+    0.01400237,
+    0.00158983,
+    0.01392933
+   ],
+   "force_hartree_per_bohr": [
+    -0.01400237,
+    -0.00158983,
+    -0.01392933
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    32.819016,
+    19.090632,
+    28.458904
+   ],
+   "mulliken_charge": -0.371965,
+   "loewdin_charge": -0.323501,
+   "gradient_hartree_per_bohr": [
+    -0.04227155,
+    0.01608014,
+    -0.02571846
+   ],
+   "force_hartree_per_bohr": [
+    0.04227155,
+    -0.01608014,
+    0.02571846
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    33.718765,
+    19.160792,
+    29.188133
+   ],
+   "mulliken_charge": 0.194559,
+   "loewdin_charge": 0.163263,
+   "gradient_hartree_per_bohr": [
+    0.02904958,
+    0.00086677,
+    0.02002314
+   ],
+   "force_hartree_per_bohr": [
+    -0.02904958,
+    -0.00086677,
+    -0.02002314
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    33.214558,
+    19.343151,
+    27.508442
+   ],
+   "mulliken_charge": 0.130926,
+   "loewdin_charge": 0.12207,
+   "gradient_hartree_per_bohr": [
+    -0.00330065,
+    -0.00673832,
+    0.02100159
+   ],
+   "force_hartree_per_bohr": [
+    0.00330065,
+    0.00673832,
+    -0.02100159
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    31.707955,
+    19.927073,
+    28.938461
+   ],
+   "mulliken_charge": -0.148279,
+   "loewdin_charge": -0.393427,
+   "gradient_hartree_per_bohr": [
+    -0.00812858,
+    -0.01188352,
+    -0.03768931
+   ],
+   "force_hartree_per_bohr": [
+    0.00812858,
+    0.01188352,
+    0.03768931
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    30.819431,
+    19.95261,
+    28.375864
+   ],
+   "mulliken_charge": 0.120444,
+   "loewdin_charge": 0.121341,
+   "gradient_hartree_per_bohr": [
+    0.0202533,
+    0.00103002,
+    0.02154651
+   ],
+   "force_hartree_per_bohr": [
+    -0.0202533,
+    -0.00103002,
+    -0.02154651
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    31.450611,
+    19.53817,
+    29.938069
+   ],
+   "mulliken_charge": 0.115876,
+   "loewdin_charge": 0.152357,
+   "gradient_hartree_per_bohr": [
+    0.00309492,
+    -0.00610392,
+    0.00317848
+   ],
+   "force_hartree_per_bohr": [
+    -0.00309492,
+    0.00610392,
+    -0.00317848
+   ]
+  },
+  {
+   "element": "S",
+   "atomic_number": 16,
+   "xyz_angstrom": [
+    32.058335,
+    21.716858,
+    29.320477
+   ],
+   "mulliken_charge": 0.309212,
+   "loewdin_charge": 0.491223,
+   "gradient_hartree_per_bohr": [
+    -0.06156375,
+    0.01429892,
+    -0.02550855
+   ],
+   "force_hartree_per_bohr": [
+    0.06156375,
+    -0.01429892,
+    0.02550855
+   ]
+  },
+  {
+   "element": "O",
+   "atomic_number": 8,
+   "xyz_angstrom": [
+    30.542545,
+    22.292204,
+    29.301903
+   ],
+   "mulliken_charge": -0.540863,
+   "loewdin_charge": -0.228087,
+   "gradient_hartree_per_bohr": [
+    0.03176844,
+    -0.00825337,
+    0.00329012
+   ],
+   "force_hartree_per_bohr": [
+    -0.03176844,
+    0.00825337,
+    -0.00329012
+   ]
+  },
+  {
+   "element": "C",
+   "atomic_number": 6,
+   "xyz_angstrom": [
+    32.670555,
+    22.40748,
+    27.79085
+   ],
+   "mulliken_charge": -0.32381,
+   "loewdin_charge": -0.413726,
+   "gradient_hartree_per_bohr": [
+    0.0050321,
+    0.04731123,
+    0.045582
+   ],
+   "force_hartree_per_bohr": [
+    -0.0050321,
+    -0.04731123,
+    -0.045582
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    32.68116,
+    23.463244,
+    27.878239
+   ],
+   "mulliken_charge": 0.174948,
+   "loewdin_charge": 0.131226,
+   "gradient_hartree_per_bohr": [
+    -0.00248073,
+    -0.01867933,
+    -0.00182271
+   ],
+   "force_hartree_per_bohr": [
+    0.00248073,
+    0.01867933,
+    0.00182271
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    33.67379,
+    21.962443,
+    27.581305
+   ],
+   "mulliken_charge": 0.204079,
+   "loewdin_charge": 0.155597,
+   "gradient_hartree_per_bohr": [
+    0.01629614,
+    -0.01458698,
+    -0.00881903
+   ],
+   "force_hartree_per_bohr": [
+    -0.01629614,
+    0.01458698,
+    0.00881903
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    32.008682,
+    22.059471,
+    26.90818
+   ],
+   "mulliken_charge": 0.129197,
+   "loewdin_charge": 0.138767,
+   "gradient_hartree_per_bohr": [
+    -0.01244311,
+    -0.01449202,
+    -0.02628479
+   ],
+   "force_hartree_per_bohr": [
+    0.01244311,
+    0.01449202,
+    0.02628479
+   ]
+  },
+  {
+   "element": "O",
+   "atomic_number": 8,
+   "xyz_angstrom": [
+    28.580528,
+    22.545002,
+    27.800879
+   ],
+   "mulliken_charge": -0.712884,
+   "loewdin_charge": -0.300185,
+   "gradient_hartree_per_bohr": [
+    0.02396459,
+    -0.01883627,
+    -0.01758176
+   ],
+   "force_hartree_per_bohr": [
+    -0.02396459,
+    0.01883627,
+    0.01758176
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    29.997244,
+    22.34478,
+    28.462998
+   ],
+   "mulliken_charge": 0.400129,
+   "loewdin_charge": 0.14659,
+   "gradient_hartree_per_bohr": [
+    0.00357898,
+    -0.00177179,
+    -0.00308331
+   ],
+   "force_hartree_per_bohr": [
+    -0.00357898,
+    0.00177179,
+    0.00308331
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    28.197268,
+    21.997727,
+    27.137886
+   ],
+   "mulliken_charge": 0.310756,
+   "loewdin_charge": 0.130573,
+   "gradient_hartree_per_bohr": [
+    0.00345423,
+    0.01431696,
+    0.02187193
+   ],
+   "force_hartree_per_bohr": [
+    -0.00345423,
+    -0.01431696,
+    -0.02187193
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    23.9676,
+    27.405553,
+    29.137077
+   ],
+   "mulliken_charge": 0.149423,
+   "loewdin_charge": 0.131703,
+   "gradient_hartree_per_bohr": [
+    -0.00401039,
+    0.00319499,
+    -0.00282341
+   ],
+   "force_hartree_per_bohr": [
+    0.00401039,
+    -0.00319499,
+    0.00282341
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    29.756565,
+    21.562655,
+    33.331047
+   ],
+   "mulliken_charge": 0.166265,
+   "loewdin_charge": 0.149412,
+   "gradient_hartree_per_bohr": [
+    0.00936563,
+    -0.00107537,
+    -0.00149728
+   ],
+   "force_hartree_per_bohr": [
+    -0.00936563,
+    0.00107537,
+    0.00149728
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    34.497574,
+    22.995792,
+    32.039628
+   ],
+   "mulliken_charge": 0.131251,
+   "loewdin_charge": 0.110039,
+   "gradient_hartree_per_bohr": [
+    -0.00227577,
+    0.00128733,
+    0.00131846
+   ],
+   "force_hartree_per_bohr": [
+    0.00227577,
+    -0.00128733,
+    -0.00131846
+   ]
+  },
+  {
+   "element": "H",
+   "atomic_number": 1,
+   "xyz_angstrom": [
+    32.511624,
+    18.045178,
+    28.433658
+   ],
+   "mulliken_charge": 0.122276,
+   "loewdin_charge": 0.132329,
+   "gradient_hartree_per_bohr": [
+    0.00250998,
+    0.00175811,
+    0.00131822
+   ],
+   "force_hartree_per_bohr": [
+    -0.00250998,
+    -0.00175811,
+    -0.00131822
+   ]
+  }
+ ],
+ "orca_keywords": "B3LYP D4 def2-TZVP EnGrad"
+}
