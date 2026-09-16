@@ -26,14 +26,16 @@ print(f"default   SCORE={s0[0]:.3e}  GRAD={s0[1]:.3f} CHRG={s0[2]:.3f} E={s0[3]:
 print(f"perturbed SCORE={s1[0]:.3e}")
 print("pipeline runs   :", "YES" if (np.isfinite(s0[0]) and s0[0] < 1e299) else "NO")
 print("params take hold:", "YES" if not np.allclose(s0, s1) else "NO (XTBPATH ignored!)")
-# dedicated proof that the EXTRA (Se) params are wired: perturb ONLY indices >=75 (Se),
-# holding H/C/N/O/S at stock, and confirm the objective moves.
+# dedicated proof that the EXTRA params are wired: perturb ONLY indices >=75 (the extra
+# elements), holding H/C/N/O/S at stock, and confirm the objective moves. The label comes
+# from C.EXTRA_LABEL so it always names the elements actually injected.
 if C.DIMENSION > 75:
-    se = list(orig)
-    for i in range(75, C.DIMENSION): se[i] *= 1.05
-    s2 = np.array(funct.evaluate(solution=se, thr_id=2))
-    print("Se params take hold:", "YES" if not np.allclose(s0, s2) else "NO (Se tokens DEAD!)",
-          f" (SCORE {s0[0]:.3e} -> {s2[0]:.3e})")
+    ext = list(orig)
+    for i in range(75, C.DIMENSION): ext[i] *= 1.05
+    s2 = np.array(funct.evaluate(solution=ext, thr_id=2))
+    lab = C.EXTRA_LABEL
+    print(f"{lab} params take hold:", "YES" if not np.allclose(s0, s2)
+          else f"NO ({lab} tokens DEAD!)", f" (SCORE {s0[0]:.3e} -> {s2[0]:.3e})")
 # rough estimate: one generation ~ ceil(POP/N_CPUS) * t_eval ; total ~ * ITERS
 per_gen = np.ceil(C.POP / C.N_CPUS) * t_eval
 print(f"\ntiming: 1 evaluation ~{t_eval:.0f}s  ->  ~{per_gen/60:.1f} min/generation  ->  "
