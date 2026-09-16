@@ -25,6 +25,7 @@ print(f"\ntrain curves {len(paths)} / {n_struct} structures   paramset={C.PARAMS
 print(f"default   SCORE={s0[0]:.3e}  GRAD={s0[1]:.3f} CHRG={s0[2]:.3f} E={s0[3]:.3e}")
 print(f"perturbed SCORE={s1[0]:.3e}")
 print("pipeline runs   :", "YES" if (np.isfinite(s0[0]) and s0[0] < 1e299) else "NO")
+K.warn_objective_scale(s0, "default-parameter")
 print("params take hold:", "YES" if not np.allclose(s0, s1) else "NO (XTBPATH ignored!)")
 # dedicated proof that the EXTRA params are wired: perturb ONLY indices >=75 (the extra
 # elements), holding H/C/N/O/S at stock, and confirm the objective moves. The label comes
